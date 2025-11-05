@@ -2,6 +2,9 @@ package exceptions;
 
 public class QueueFullException extends Exception {
     public QueueFullException() {
-         super("Stack is empty");
+         super("Queue is empty");
+     }
+     public QueueFullException(String message) {
+         super(message);
      }
 }

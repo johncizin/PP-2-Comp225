@@ -1,4 +1,5 @@
 package adts;
+import exceptions.QueueFullException;
 import interfaces.QueueInterface;
 
 public class ArrayQ<E> implements QueueInterface<E>{
@@ -16,16 +17,18 @@ public class ArrayQ<E> implements QueueInterface<E>{
 
     @Override
     public void enqueue(E element) {
-        if(front == 0){
-            queue[front] = element;
-            rear++;
-        } else if(rear > -1 && rear < queue.length - 1){
+        try{
+            if(isFull()){
+                throw new QueueFullException("Queue is full");
+            }
             rear++;
             queue[rear] = element;
-        } else{
-            System.out.println("Array is full, no more elements");
+        } catch (QueueFullException e){
+            e.printStackTrace();
         }
+
     }
+    
 
     @Override
     public E dequeue() {
