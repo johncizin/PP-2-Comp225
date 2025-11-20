@@ -37,17 +37,17 @@ public class ArrayQ<E> implements QueueInterface<E>{
             if(isEmpty()){
                 throw new exceptions.QueueEmptyException("Queue is empty");
             }
-       
         } catch (exceptions.QueueEmptyException e){
             e.printStackTrace();
         }
           E temp = queue[front];
+
+            for(int i = front; i < rear; i++){
+                queue[i] = queue[i + 1];
+            } 
+
             queue[front] = null;
             rear--;
-
-            for(int i = queue.length - 1; i >= 0; i--){
-                queue[i+1] = queue[i];
-            }
             return temp;
     }
 

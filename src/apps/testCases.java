@@ -16,7 +16,7 @@ import adts.ArrayQ;
 public class testCases {
     public static void main(String[] args){
         //Case 1:
-        System.out.println("Test Case 1: IsEmpty() method");
+        System.out.println("\nTest Case 1: IsEmpty() method");
         ArrayQ<Integer> queue1 = new ArrayQ<>(5);
         System.out.println("Initial State: " + queue1.toString());
         System.out.println("Operation: isEmpty()");
@@ -85,55 +85,56 @@ public class testCases {
         System.out.println("\n");
 
         //Case 8:
-        System.out.println("Test Case 8: dequeue() method");
-        ArrayQ<Integer> queue8 = new ArrayQ<>(4);
-        queue8.enqueue(10);
-        queue8.enqueue(20);
-        queue8.enqueue(30);
+        System.out.println("Test Case 8: toString() method");
+        ArrayQ<Integer> queue8 = new ArrayQ<>(3);
         System.out.println("Initial State: " + queue8.toString());
-        System.out.println("Operation: dequeue()");            
-        System.out.println("Expected Return Value: 10");
-        System.out.println("Actual Return Value: " + queue8.dequeue());
-        System.out.println("Expected State: [20, 30]");
-        System.out.println("Actual State: " + queue8.toString() + "\n");
+        System.out.println("Operation: toString()");
+        System.out.println("Expected Return Value: []");
+        System.out.println("Actual Return Value: " + queue8.toString() + "\n");
 
         //Case 9:
-        System.out.println("Test Case 9: dequeue() method");
-        ArrayQ<Integer> queue9 = new ArrayQ<>(3);
-        queue9.enqueue(100);
+        System.out.println("Test Case 9: toString() method");
+        ArrayQ<Integer> queue9 = new ArrayQ<>(4);
+        queue9.enqueue(7);
+        queue9.enqueue(14);
+        queue9.enqueue(21);
         System.out.println("Initial State: " + queue9.toString());
-        System.out.println("Operation: dequeue()");
-        System.out.println("Expected Return Value: 100");
-        System.out.println("Actual Return Value: " + queue9.dequeue());
-        System.out.println("Expected State: []");
-        System.out.println("Actual State: " + queue9.toString() + "\n");
+        System.out.println("Operation: toString()");
+        System.out.println("Expected Return Value: [7, 14, 21]");
+        System.out.println("Actual Return Value: " + queue9.toString() + "\n");
+
         //Case 10:
         System.out.println("Test Case 10: dequeue() method");
-        ArrayQ<Integer> queue10 = new ArrayQ<>(2);
+        ArrayQ<Integer> queue10 = new ArrayQ<>(3);
+        queue10.enqueue(100);
         System.out.println("Initial State: " + queue10.toString());
+        System.out.println("Operation: dequeue()");
+        System.out.println("Expected Return Value: 100");
+        System.out.println("Actual Return Value: " + queue10.dequeue());
+        System.out.println("Expected State: []");
+        System.out.println("Actual State: " + queue10.toString() + "\n");
+
+           //Case 11:
+        System.out.println("Test Case 11: dequeue() method");
+        ArrayQ<Integer> queue11 = new ArrayQ<>(4);
+        queue11.enqueue(10);
+        queue11.enqueue(20);
+        queue11.enqueue(30);
+        System.out.println("Initial State: " + queue11.toString());
+        System.out.println("Operation: dequeue()");            
+        System.out.println("Expected Return Value: 10");
+        System.out.println("Actual Return Value: " + queue11.dequeue());
+        System.out.println("Expected State: [20, 30]");
+        System.out.println("Actual State: " + queue11.toString() + "\n");
+
+          //Case 12:
+        System.out.println("Test Case 12: dequeue() method");
+        ArrayQ<Integer> queue12 = new ArrayQ<>(2);
+        System.out.println("Initial State: " + queue12.toString());
         System.out.println("Operation: dequeue()");
         System.out.println("Expected Return Value: QueueEmptyException");
         System.out.print("Actual Return Value: ");
-        queue10.dequeue();
+        queue12.dequeue();
         System.out.println("\n");
-
-        //Case 11:
-        System.out.println("Test Case 11: toString() method");
-        ArrayQ<Integer> queue11 = new ArrayQ<>(3);
-        System.out.println("Initial State: " + queue11.toString());
-        System.out.println("Operation: toString()");
-        System.out.println("Expected Return Value: []");
-        System.out.println("Actual Return Value: " + queue11.toString() + "\n");
-
-        //Case 12:
-        System.out.println("Test Case 12: toString() method");
-        ArrayQ<Integer> queue12 = new ArrayQ<>(4);
-        queue12.enqueue(7);
-        queue12.enqueue(14);
-        queue12.enqueue(21);
-        System.out.println("Initial State: " + queue12.toString());
-        System.out.println("Operation: toString()");
-        System.out.println("Expected Return Value: [7, 14, 21]");
-        System.out.println("Actual Return Value: " + queue12.toString() + "\n");
     }
 }
