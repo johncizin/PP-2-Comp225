@@ -1,11 +1,15 @@
 package apps;
 /* 
- 
- You must write 12 test cases:
-three for the enqueue
-three for the dequeue
-two each for the isEmpty, isFull, and toString operations
-Each test case will state which operation is to be performed and the state of the test queue prior to the execution of the operation. For the enqueue and dequeue, the test case will state the expected state of the queue after the operation is executed. For all operations other than the enqueue, the test case will state the expected return value.
+ Instructions: 
+
+ You must write 12 test cases [X]
+
+3 for the enqueue [X]
+3 for the dequeue [X]
+2 each for the isEmpty, isFull, and toString operations [X]
+Each test case will state which operation is to be performed and the state of the test queue prior to the execution of the operation. For the enqueue and dequeue, the test case will state the expected state  of the queue after the operation is executed. [X]
+
+For all operations other than the enqueue, the test case will state the expected return value. [X]
  */
 import adts.ArrayQ;
 
@@ -57,7 +61,6 @@ public class testCases {
         System.out.println("Initial State: " + queue5.toString());
         System.out.println("Operation: enqueue(5)");
         queue5.enqueue(5);
-        System.out.println("Expected State: [5]");
         System.out.println("Actual State: " + queue5.toString() + "\n");
 
         //Case 6: 
@@ -68,7 +71,6 @@ public class testCases {
         System.out.println("Initial State: " + queue6.toString());
         System.out.println("Operation: enqueue(3)");
         queue6.enqueue(3);
-        System.out.println("Expected State: [1, 2, 3]");
         System.out.println("Actual State: " + queue6.toString() + "\n");
 
         //Case 7:
@@ -78,8 +80,7 @@ public class testCases {
         queue7.enqueue(2);
         System.out.println("Initial State: " + queue7.toString());
         System.out.println("Operation: enqueue(3)");
-        System.out.println("Expected State: QueueFullException");
-        System.out.print("Actual State: ");
+        System.out.println("Expected State: QueueFullException"); // wrote expected state for this one because there will be 
         queue7.enqueue(3);
         System.out.println("\n");
 
