@@ -12,6 +12,7 @@ Each test case will state which operation is to be performed and the state of th
 For all operations other than the enqueue, the test case will state the expected return value. [X]
  */
 import adts.ArrayQ;
+import exceptions.*;
 
 public class testCases {
     public static void main(String[] args){
@@ -26,9 +27,13 @@ public class testCases {
         //Case 2:
         System.out.println("Test Case 2: IsEmpty() method");
         ArrayQ<Integer> queue2 = new ArrayQ<>(5);
+        try {
         queue2.enqueue(10);
         queue2.enqueue(234);
         queue2.enqueue(67);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Initial State: " + queue2.toString());
         System.out.println("Operation: isEmpty()");
         System.out.println("Expected Return Value: false");
@@ -37,9 +42,13 @@ public class testCases {
         //Case 3:
         System.out.println("Test Case 3: IsFull() method");
         ArrayQ<Integer> queue3 = new ArrayQ<>(3);
+        try {
         queue3.enqueue(1);
         queue3.enqueue(2);
         queue3.enqueue(3);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Initial State: " + queue3.toString());
         System.out.println("Operation: isFull()");
         System.out.println("Expected Return Value: true");
@@ -48,8 +57,12 @@ public class testCases {
         //Case 4:
         System.out.println("Test Case 4: IsFull() method");
         ArrayQ<Integer> queue4 = new ArrayQ<>(5);
+        try {
         queue4.enqueue(10);
         queue4.enqueue(20);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Initial State: " + queue4.toString());
         System.out.println("Operation: isFull()");
         System.out.println("Expected Return Value: false");
@@ -60,28 +73,49 @@ public class testCases {
         ArrayQ<Integer> queue5 = new ArrayQ<>(4);
         System.out.println("Initial State: " + queue5.toString());
         System.out.println("Operation: enqueue(5)");
-        queue5.enqueue(5);
+        try {
+            queue5.enqueue(5);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Actual State: " + queue5.toString() + "\n");
 
         //Case 6: 
         System.out.println("Test Case 6: enqueue() method");
         ArrayQ<Integer> queue6 = new ArrayQ<>(3);
-        queue6.enqueue(1);
-        queue6.enqueue(2);
+          try {
+            queue6.enqueue(1);
+             queue6.enqueue(2);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
+            
         System.out.println("Initial State: " + queue6.toString());
         System.out.println("Operation: enqueue(3)");
-        queue6.enqueue(3);
+        try {
+            queue6.enqueue(3);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Actual State: " + queue6.toString() + "\n");
 
         //Case 7:
         System.out.println("Test Case 7: enqueue() method");
         ArrayQ<Integer> queue7 = new ArrayQ<>(2);
-        queue7.enqueue(1);
-        queue7.enqueue(2);
+        try {
+            queue7.enqueue(1);
+            queue7.enqueue(2);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Initial State: " + queue7.toString());
         System.out.println("Operation: enqueue(3)");
         System.out.println("Expected State: QueueFullException"); // wrote expected state for this one because there will be 
-        queue7.enqueue(3);
+        try {
+            queue7.enqueue(3);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("\n");
 
         //Case 8:
@@ -95,9 +129,13 @@ public class testCases {
         //Case 9:
         System.out.println("Test Case 9: toString() method");
         ArrayQ<Integer> queue9 = new ArrayQ<>(4);
-        queue9.enqueue(7);
-        queue9.enqueue(14);
-        queue9.enqueue(21);
+        try {
+          queue9.enqueue(7);
+          queue9.enqueue(14);
+          queue9.enqueue(21);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Initial State: " + queue9.toString());
         System.out.println("Operation: toString()");
         System.out.println("Expected Return Value: [7, 14, 21]");
@@ -106,24 +144,40 @@ public class testCases {
         //Case 10:
         System.out.println("Test Case 10: dequeue() method");
         ArrayQ<Integer> queue10 = new ArrayQ<>(3);
-        queue10.enqueue(100);
+        try {
+            queue10.enqueue(100);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Initial State: " + queue10.toString());
         System.out.println("Operation: dequeue()");
         System.out.println("Expected Return Value: 100");
-        System.out.println("Actual Return Value: " + queue10.dequeue());
+        try {
+            System.out.println("Actual Return Value: " + queue10.dequeue());
+        } catch (QueueEmptyException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Expected State: []");
         System.out.println("Actual State: " + queue10.toString() + "\n");
 
            //Case 11:
         System.out.println("Test Case 11: dequeue() method");
         ArrayQ<Integer> queue11 = new ArrayQ<>(4);
-        queue11.enqueue(10);
-        queue11.enqueue(20);
-        queue11.enqueue(30);
+        try {
+            queue11.enqueue(10);
+            queue11.enqueue(20);
+            queue11.enqueue(30);
+        } catch (QueueFullException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Initial State: " + queue11.toString());
         System.out.println("Operation: dequeue()");            
         System.out.println("Expected Return Value: 10");
-        System.out.println("Actual Return Value: " + queue11.dequeue());
+        try {
+            System.out.println("Actual Return Value: " + queue11.dequeue());
+        } catch (QueueEmptyException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("Expected State: [20, 30]");
         System.out.println("Actual State: " + queue11.toString() + "\n");
 
@@ -134,7 +188,11 @@ public class testCases {
         System.out.println("Operation: dequeue()");
         System.out.println("Expected Return Value: QueueEmptyException");
         System.out.print("Actual Return Value: ");
-        queue12.dequeue();
+        try{
+          queue12.dequeue();
+        } catch (QueueEmptyException e){
+            System.out.println(e.getMessage());
+        }
         System.out.println("\n");
     }
 }

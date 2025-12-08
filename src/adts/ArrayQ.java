@@ -18,28 +18,19 @@ public class ArrayQ<E> implements QueueInterface<E>{
     public ArrayQ(int length){queue = (E[]) new Object[length];}
 
     @Override
-    public void enqueue(E element) {
-        try{
+    public void enqueue(E element) throws QueueFullException {
             if(isFull()){
                 throw new QueueFullException("Queue is full");
             }
             rear++;
             queue[rear] = element;
-        } catch (QueueFullException e){
-            e.printStackTrace();
-        }
-
     }
     
     @Override
-    public E dequeue() {
-        try{
+    public E dequeue() throws QueueEmptyException {
             if(isEmpty()){
-                throw new exceptions.QueueEmptyException("Queue is empty");
+                throw new QueueEmptyException("Queue is empty!");
             }
-        } catch (exceptions.QueueEmptyException e){
-            e.printStackTrace();
-        }
           E temp = queue[front];
 
             for(int i = front; i < rear; i++){
